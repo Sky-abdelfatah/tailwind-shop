@@ -1,0 +1,48 @@
+<div class="mx-auto p-6 bg-white rounded-lg shadow-md md:p-20">
+  <h2
+    class="text-5xl font-bold after:w-20 drop-shadow-sm drop-shadow-orange-600/70 after:h-0.5 after:absolute after:start-1/2 after:top-[120%] after:-translate-x-1/2 after:z-10 after:bg-main relative text-main text-[#7b4b2a] mb-2 font-[cursive] text-center"
+  >
+    Products
+  </h2>
+
+  <div class="flex justify-center">
+    <div class="w-20 h-0.5 bg-[#7b4b2a] rounded-full mb-4 mt-2"></div>
+  </div>
+  <p class="text-gray-600 mb-6 text-center">Best Selling Products</p>
+
+  <div
+    class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 p-4"
+  >
+    @for (product of products; track product.id) {
+    <div
+      class="bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 p-4 flex flex-col items-center text-center"
+    >
+      <img
+        [src]="product.image"
+        alt="{{ product.title }}"
+        class="w-40 h-40 object-contain mb-4"
+      />
+
+      <h2 class="text-lg font-semibold text-[#7b4b2a] mb-2 line-clamp-2">
+        {{ product.title }}
+      </h2>
+
+      <p class="text-sm text-gray-600 mb-2 line-clamp-3">
+        {{ product.description }}
+      </p>
+
+      <p class="text-sm text-blue-950 font-bold mb-1">
+        Category: {{ product.category }}
+      </p>
+
+      <p class="text-xl font-bold text-green-600 mb-2">${{ product.price }}</p>
+
+      <button
+        class="bg-[#7b4b2a] text-white px-4 py-2 rounded-full hover:bg-[#5c3920] transition-colors duration-200"
+      >
+        Add to Cart
+      </button>
+    </div>
+    }
+  </div>
+</div>

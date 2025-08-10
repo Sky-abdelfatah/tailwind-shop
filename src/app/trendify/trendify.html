@@ -1,0 +1,58 @@
+<div class="mx-auto p-6 bg-white rounded-lg shadow-md md:p-20">
+  <h2
+    class="text-5xl font-bold after:w-20 drop-shadow-sm drop-shadow-orange-600/70 after:h-0.5 after:absolute after:start-1/2 after:top-[120%] after:-translate-x-1/2 after:z-10 after:bg-main relative text-main text-[#7b4b2a] mb-2 font-[cursive] text-center"
+  >
+    trenify
+  </h2>
+  <div class="w-20 h-0.5 bg-[#7b4b2a] rounded-full mb-4 mt-2 mx-auto"></div>
+  <p class="text-gray-600 mb-6 text-center">Best Selling Products</p>
+
+  <div
+    class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 p-4"
+  >
+    @for (movie of moviesData; track movie.id) {
+    <div
+      class="p-4 bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-shadow duration-300"
+    >
+      <img
+        [src]="'https://image.tmdb.org/t/p/w500' + movie.poster_path"
+        alt="Movie Poster"
+        class="w-full h-64 object-cover mb-4"
+      />
+
+      <h2 class="text-lg font-semibold text-[#7b4b2a] mb-2">
+        @if (movie.title) {
+        <span class="font-bold text-blue-950">Title:</span> {{ movie.title }}
+        } @else {
+        <span class="font-bold text-blue-950">Name:</span> {{ movie.name }}
+        }
+      </h2>
+
+      <p class="text-sm text-gray-600 mb-2">
+        <span class="font-bold text-blue-950">Rate:</span> ⭐
+        {{ movie.vote_average }}
+      </p>
+      <p class="text-sm text-gray-600 mb-2">
+        <span class="font-bold text-blue-950">Date:</span>
+        {{ movie.release_date || movie.first_air_date }}
+      </p>
+
+      <p class="text-sm text-gray-700 line-clamp-3">
+        <span class="font-bold text-blue-950">Overview:</span>
+        {{ movie.overview }}
+      </p>
+    </div>
+    }
+  </div>
+
+  <!-- defer تحميل المكون من الـ route -->
+  @defer (on timer(5s)) {
+  <app-recommendation></app-recommendation>
+  } @placeholder {
+  <div class="flex justify-center items-center py-10">
+    <div
+      class="animate-spin rounded-full h-12 w-12 border-t-4 border-b-4 border-[#7b4b2a]"
+    ></div>
+  </div>
+  }
+</div>

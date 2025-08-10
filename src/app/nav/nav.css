@@ -1,0 +1,10 @@
+.logo {
+  color: RGB(139, 94, 53);
+}
+a:hover {
+  color: RGB(139, 94, 53);
+}
+
+.active {
+  color: RGB(139, 94, 53);
+}
