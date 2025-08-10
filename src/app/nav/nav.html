@@ -1,20 +1,21 @@
 <nav class="bg-[#f8fafc] border-b border-gray-200 shadow-sm">
   <div
-    class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4"
+    class="max-w-screen-xl mx-auto p-4 flex flex-wrap items-center justify-between"
   >
     <a href="/" class="flex items-center space-x-3">
       <span class="self-center text-2xl font-semibold text-main logo"
         >Trendify</span
       >
     </a>
-    <button
-      data-collapse-toggle="navbar-default"
-      type="button"
-      class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200"
-      aria-controls="navbar-default"
-      aria-expanded="false"
+
+    <!-- Hidden checkbox to toggle menu -->
+    <input type="checkbox" id="menu-toggle" class="peer hidden" />
+
+    <!-- Hamburger button -->
+    <label
+      for="menu-toggle"
+      class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 cursor-pointer"
     >
-      <span class="sr-only">Open main menu</span>
       <svg
         class="w-5 h-5"
         xmlns="http://www.w3.org/2000/svg"
@@ -29,8 +30,13 @@
           d="M1 1h15M1 7h15M1 13h15"
         />
       </svg>
-    </button>
-    <div class="hidden w-full md:block md:w-auto" id="navbar-default">
+    </label>
+
+    <!-- Menu -->
+    <div
+      class="w-full peer-checked:block hidden md:block md:w-auto"
+      id="navbar-default"
+    >
       <ul
         class="font-medium flex flex-col p-4 md:p-0 mt-4 md:flex-row md:space-x-8 md:mt-0"
       >
